@@ -14,7 +14,7 @@ import jakarta.servlet.http.Part;
 import java.sql.*;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.Random;
+//import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utiles.connection;
@@ -39,8 +39,7 @@ public class UploadArchivo extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-        }
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,11 +86,10 @@ public class UploadArchivo extends HttpServlet {
             if (rs2.next() == false) {
                 InputStream inputStream = null;
 
-                Random rand = new Random();
-                int n = rand.nextInt(9999) + 1;
-                String idTemp = (String.valueOf(n));
-
-                String title = "Norma_material";
+                //Random rand = new Random();
+                //int n = rand.nextInt(9999) + 1;
+                //String idTemp = (String.valueOf(n));
+                //String title = "Norma_material";
                 Part filePart = request.getPart("norma_material");
 
                 if (filePart != null) {

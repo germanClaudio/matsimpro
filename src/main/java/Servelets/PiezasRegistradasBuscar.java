@@ -42,7 +42,7 @@ public class PiezasRegistradasBuscar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             try {
                 String nombuscar = request.getParameter("txtbuscar");
                 Connection con = connection.conectar();
