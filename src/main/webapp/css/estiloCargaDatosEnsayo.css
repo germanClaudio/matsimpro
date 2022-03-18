@@ -1,0 +1,182 @@
+/* 
+    Created on : 01/12/2021, 11:38:42
+    Author     : Germán Montalbetti © <gmontalbetti@prodismo.com>
+*/
+
+body {
+    background: #eef;
+    color: #fff;
+}
+
+#containerGeneral {
+    width: 90%;
+    margin-bottom: 10px;
+    margin: 1.2rem auto 25px auto;
+    border-radius: 10px;
+    background: rgba(21, 20, 85, 0.7);
+}
+
+header{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.container {
+    background: rgba(21, 20, 85, 0.7);
+    padding: 2.3rem 0.5rem;
+    border-radius: 0.3rem;
+    max-width: 900px;
+    text-align: left;
+}
+
+.containerDatos1 {
+    position: relative;
+    margin: 10px 10px;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #fda;
+}
+
+.containerDatos2 {
+    position: relative;
+    margin: 10px 10px;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #ada;
+}
+
+.containerDatos3 {
+    position: relative;
+    margin: 10px 10px;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #5bf;
+}
+
+.containerDatos4 {
+    position: relative;
+    margin: 10px 10px;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #f76;
+}
+
+@media(min-width: 950px){
+  .container{
+    max-width: 900px;
+  }
+}
+
+@media(min-width: 1368px){
+  .container{
+    max-width: 1300px
+  }
+}
+
+.form-inline {
+    margin: auto;
+    padding: auto;
+    text-align: left;
+}
+
+.form-control {
+    display: inline-block;
+    margin: 0;
+    padding: 5px 20px;
+}
+
+input {
+    margin: 1px 0px 30px 0px; 
+    padding: auto 0;
+    text-align: left;
+    padding-left: 5px
+}
+
+button {
+    margin-left: 10px;
+    width: auto;
+}
+
+#form1 {
+    margin: 15px 8px;
+    padding: auto;
+}
+
+.form-group {
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+input.form-check-input{
+    text-align: left;
+}
+
+h1 {
+    margin-top: 8px;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+h5 {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.footer {
+    color: #fff;
+    text-align: center;
+    margin: 10px;
+}
+
+input:hover {
+    box-shadow: 0px 0px 8px 0 #0c0;
+}
+
+textarea:hover {
+    box-shadow: 0px 0px 8px 0 #0c0;
+}
+
+
+#alargamiento {
+    width: 98%;
+    margin-bottom: 10px;
+    margin: 3.2rem auto 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #e3a25d;
+}
+
+#resistencia {
+    width: 98%;
+    margin-bottom: 10px;
+    margin: 3.2rem auto 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #22a25d;
+}
+
+#datos {
+    width: 98%;
+    margin-bottom: 10px;
+    margin: 3.2rem auto 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #2282fd;
+}
+
+#sim {
+    width: 98%;
+    margin-bottom: 10px;
+    margin: 3.2rem auto 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f2322d;
+}

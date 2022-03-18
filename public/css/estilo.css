@@ -1,0 +1,59 @@
+/* 
+    Created on : 08/09/2021, 08:40:54
+    Author     : Germán Montalbetti © <gmontalbetti@prodismo.com>
+*/
+#containerLogin{
+    width: 400px;
+    margin-top: 80px;
+    border-radius: 1em;
+}
+
+#imagenLogin{
+    margin-top: 50px;
+}
+
+#form1{
+    margin-top: 25px;
+    margin-right: 25px;
+}
+
+#form2{
+    margin: 50px;
+}
+
+#botonLogin{
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    
+}
+
+#formGroup{
+    width: 100%;
+    margin-top: 20px;
+    
+}
+
+#containerPanel{
+    width: 850px;
+    margin: 50px;
+    border-radius: 1em;
+    
+}
+
+#containerInfo{
+    width: 900px;
+    margin: 75px;
+    border-radius: 1em;
+}
+
+.buscar{
+    display: flex;
+    
+}
+
+.formbuscar{
+    display: flex;
+    padding-left: 200px;
+        
+}
