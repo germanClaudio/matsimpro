@@ -68,6 +68,10 @@
         <servlet-name>PiezasRegistradasPagination</servlet-name>
         <servlet-class>Servelets.PiezasRegistradasPagination</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>olvidoPassword</servlet-name>
+        <servlet-class>Servelets.olvidoPassword</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Usuarios</servlet-name>
         <url-pattern>/Usuarios</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>PiezasRegistradasPagination</servlet-name>
         <url-pattern>/PiezasRegistradasPagination</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>olvidoPassword</servlet-name>
+        <url-pattern>/olvidoPassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -19,65 +19,89 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.RequestDispatcher;
+import static java.lang.System.out;
 
-/**
- * Servlet implementation class ForgotPassword
- */
-//@WebServlet("/forgotPassword")
+/* @author Germán Montalbetti © <gmontalbetti@prodismo.com> */
 @WebServlet(name = "forgotPassword", urlPatterns = {"/forgotPassword"})
 
 public class ForgotPassword extends HttpServlet {
-        
-	protected void processRequest (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+        //@Override
+	protected void processRequest (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //processRequest
 		String email = request.getParameter("email");
+                String from = "germontalbetti@gmail.com";
 		RequestDispatcher dispatcher = null;
 		int otpvalue = 0;
                 HttpSession sesion = request.getSession();
-		
-		if(email!=null || !email.equals("")) {
+                
+		if(email != null ) { //|| email.equals("")
 			// sending otp
 			Random rand = new Random();
 			otpvalue = rand.nextInt(1255650);
 
 			String paraQuien = email;// change accordingly
 			// Get the session object
-			Properties props = new Properties();
+			Properties props = System.getProperties();//new Properties();
 			props.put("mail.smtp.host", "smtp.gmail.com");
-			props.put("mail.smtp.socketFactory.port", "465");
+                        props.put("mail.smtp.ssl.enable", "true");
+			props.put("mail.smtp.socketFactory.port", "587"); //465
 			props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 			props.put("mail.smtp.auth", "true");
-			props.put("mail.smtp.port", "465");
-			Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			props.put("mail.smtp.port", "465"); //465
+                        
+			Session session = Session.getInstance(props, new javax.mail.Authenticator() {
                                 @Override
 				protected PasswordAuthentication getPasswordAuthentication() {
 					return new PasswordAuthentication("germontalbetti@gmail.com", "phkzkoiinuvpoeka");// Put your email & appPassword
 				}
 			});
-			// compose message
+			session.setDebug(true);
+                        // compose message
 			try {
                             MimeMessage message = new MimeMessage(session);
-                            message.setFrom(new InternetAddress(email));// change accordingly
+                            message.setFrom(new InternetAddress(from));// change accordingly
                             message.addRecipient(Message.RecipientType.TO, new InternetAddress(paraQuien));
                             message.setSubject("MatSimPro-OTP");
                             message.setText("Your OTP # is: " + otpvalue);
                             // send message
                             Transport.send(message);
                             System.out.println("message sent successfully");
+                            out.print("<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display: none;\">"
+                                                + "<symbol id=\"exclamation-triangle-fill\" fill=\"currentColor\" viewBox=\"0 0 16 16\">"
+                                                + "<path d=\"M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"/>"
+                                                + "</symbol>"
+                                                + "</svg>"
+                                                + "<div class=\"alert alert-danger d-flex align-items-center\" role=\"alert\">"
+                                                + "<svg class=\"bi flex-shrink-0 me-2\" width=\"20\" height=\"20\" role=\"img\" aria-label=\"Danger:\"><use xlink:href=\"#exclamation-triangle-fill\"/></svg>"
+                                                + "<div>"
+                                                + "message sent successfully!"
+                                                + "</div>"); 
+                        
+                            request.getRequestDispatcher("EnterOtp.jsp").forward(request, response);
+                            dispatcher = (RequestDispatcher) request.getRequestDispatcher("EnterOtp.jsp");
+                            request.setAttribute("message","OTP was sent to your email address");
+                            //request.setAttribute("connection", con);
+                            sesion.setAttribute("otp",otpvalue); 
+                            sesion.setAttribute("email",email);
+                            response.sendRedirect("EnterOtp.jsp");
+                            //dispatcher.forward(request, response);
+                            request.setAttribute("status", "success");
+                        
                         }
-
 			catch (MessagingException e) {
 				throw new RuntimeException(e);
                         }
                         
-			dispatcher = (RequestDispatcher) request.getRequestDispatcher("EnterOtp.jsp");
-			request.setAttribute("message","OTP is sent to your email id");
-			//request.setAttribute("connection", con);
-			sesion.setAttribute("otp",otpvalue); 
-			sesion.setAttribute("email",email);
-                        response.sendRedirect("EnterOtp.jsp");
-                        dispatcher.forward(request, response);
-			request.setAttribute("status", "success");
-		}
+		} else {
+                    out.print("<svg xmlns=\"http://www.w3.org/2000/svg\" style=\"display: none;\">"
+                                                + "<symbol id=\"exclamation-triangle-fill\" fill=\"currentColor\" viewBox=\"0 0 16 16\">"
+                                                + "<path d=\"M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"/>"
+                                                + "</symbol>"
+                                                + "</svg>"
+                                                + "<div class=\"alert alert-danger d-flex align-items-center\" role=\"alert\">"
+                                                + "<svg class=\"bi flex-shrink-0 me-2\" width=\"20\" height=\"20\" role=\"img\" aria-label=\"Danger:\"><use xlink:href=\"#exclamation-triangle-fill\"/></svg>"
+                                                + "<div>"
+                                                + "No message sent!!!!!!! "
+                                                + "</div>"); 
+                }
 	}
 }

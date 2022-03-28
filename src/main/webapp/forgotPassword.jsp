@@ -1,8 +1,3 @@
-<%-- 
-    Document   : forgotPassword
-    Created on : 25/03/2022, 11:21:51
-    Author     : Germán Montalbetti © <gmontalbetti@prodismo.com>
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
@@ -21,7 +16,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     </head>
-    <body oncontextmenu='return false' class="snippet-body">
+    <body oncontextmenu='false' class="snippet-body">
         <div class="container pb-3 mb-2 mt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10">
@@ -34,7 +29,7 @@
                             <li><span class="text-primary text-medium">3.</span> Enter the OTP on the next page</li>
                         </ol>
                     </div>
-                    <form class="card mt-5" method="post" action="forgotPassword.jsp">
+                    <form method="POST" action="forgotPassword.jsp" class="card mt-5">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="email-for-pass">Enter your email address</label>
