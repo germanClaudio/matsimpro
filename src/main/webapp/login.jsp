@@ -25,31 +25,42 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="css/estiloLogin.css"/>
         <title>Login MatSimPro Web</title>
+        <script src="https://kit.fontawesome.com/618299664c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <%
         String fecha = FormatoFecha.formaFecha();
     %>
     <body>
-        <div class="container mt-5" id="containerLogin">
+        <div class="container my-5 mx-auto" id="containerLogin">
             <img src="images/User.png" class="rounded float" id="imagenLogin" alt=""/>    
-            <div class="container mt-5">
+            <div class="container my-5 mx-auto">
                 <h4>Login Usuarios</h4>
                 <h3>MatSimPro Web App</h3>
                 <h6>Conexión a Base Datos Remota Prodismo</h6>
                 <p>Fecha: <%=fecha%></p>
             </div>
-            <div class="container mt-3" id="form1">
+            <div class="container my-3 mx-auto" id="form1">
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-12">
                         <form method="post" action="login.jsp">
-                            <div class="form-floating mb-3">
+                            <div class="form-floating my-3 mx-auto">
                                 <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario o Em@il">
                                 <label for="usuario">Usuario o Em@il</label>
                             </div>
-                            <div class="form-floating" id="formGroup">
+                            
+                            <div class="form-floating my-3 mx-auto input-group">
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                                 <label for="password">Password</label>
+                                <button class="input-group-text"><a href="#" onclick="togglePassword();"><i class="fa-solid fa-eye-slash icon" id="eyeIcon"></i></a></button>
                             </div>
+                            
+                            <div class="form-group">
+                                <a href="forgotPassword.jsp">Forgot password?</a>
+                            </div>
+                            
                             <button type="submit" class="btn btn-primary" id="botonLogin" name="login" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</button>
                         </form>
                         <h6>Developed by Germán Montalbetti ©2021</h6>
@@ -93,6 +104,23 @@
                     </div>
                 </div>
             </div>
-        </div>       
+        </div>
+                    
+    <script type="text/javascript">
+        function togglePassword(){
+            var tipo = document.getElementById("password");
+            
+            if (tipo.type == "password"){
+                tipo.type = "text";
+                $('.icon').removeClass('fa-solid fa-eye-slash');
+                $('.icon').addClass('fa-solid fa-eye');
+                
+            }else{
+                tipo.type = "password";
+                $('.icon').removeClass('fa-solid fa-eye');
+                $('.icon').addClass('fa-solid fa-eye-slash');
+            }
+        };    
+    </script>
     </body>
 </html>

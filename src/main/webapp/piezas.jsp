@@ -32,7 +32,7 @@
         try {
             Connection con = connection.conectar();
             Statement st = con.createStatement();
-            String sql = "SELECT count(*) FROM piezas";
+            String sql = "SELECT count(*) FROM piezas;";
             ResultSet rs= st.executeQuery(sql);
             if(rs.next()){
                 totalParts = rs.getInt(1);
@@ -40,21 +40,20 @@
         } catch (SQLException e) {
             System.out.println("error db" + e);
         }
-
     %>
 
     <body>
-        <div class="container mt-5" id="containerGeneral">
-            <div class="container mt-3 mx-auto" id="containerSubPannel">
-                <h1 class="text-center">Datos Piezas Registradas <i class="bi bi-gear-wide-connected" aria-hidden="true"></i></h1>
+        <div class="container my-5 mx-auto" id="containerGeneral">
+            <div class="container my-3 mx-auto card encabezado" id="containerSubPannel">
+                <h1 class="text-center my-3">Datos Piezas Registradas <i class="bi bi-gear-wide-connected" aria-hidden="true"></i></h1>
                 <h5>Conexión a Base Datos Remota</h5>
                 <p>Fecha: <%= fecha %></p>
             </div>    
-            <div class="container mt-3 mx-auto" id="containerPanel">
+            <div class="container my-3 mx-auto" id="containerPanel">
                 <nav class="navbar navbar-light" id="navBarUser">
                     <a class="navbar-brand" id="navbarBrand">Usuario</a>
                     <form class="form-inline" action="logout.jsp">
-                        <a href="datosUsuario.jsp"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  <%= sesion.getAttribute("username")%></a>
+                        <a href="datosUsuario.jsp"> <i class="fa fa-user-circle-o" aria-hidden="true"></i>  <%= sesion.getAttribute("username")%></a>
                         <button class="btn btn-danger" type="submit">Log out <i class="bi bi-box-arrow-left"></i></button>
                         <a href="main.jsp" class="btn btn-secondary" title="Volver"> Volver <i class="fa fa-arrow-circle-left" ></i></a>
                     </form>
@@ -63,8 +62,8 @@
                     <form class="form-inline">
                         <div class="buscar"> 
                             <label>Buscar pieza : </label>
-                            <input class="form1 form-inline" type="text" name="txtbuscar" placeholder="Buscar todas...">
-                            <input class="btn btn-info btn-sm" type="submit" value="Buscar">
+                            <input class="form1 form-inline my-2" type="text" name="txtbuscar" placeholder="Buscar todas...">
+                            <input class="btn btn-info btn-sm ms-2" type="submit" value="Buscar">
                         </div>
                     </form>
                 </nav>             

@@ -21,6 +21,56 @@
         <link rel="stylesheet" href="css/estiloNuevaPieza.css"/>
         <title>Crear Nuevo Usuario</title>
     </head>
+    <script type="text/javascript">
+                    function validate_passwordLenght() {
+  
+                        var password = document.getElementById('password').value;
+                        
+                        if (password.length < 8) {
+                            document.getElementById('message1').style.color = 'red';
+                            document.getElementById('message1').innerHTML 
+                              = '☒ La Contraseña debe tener al menos 8 caracteres';
+                            document.getElementById('submit').disabled = true;
+                            document.getElementById('submit').style.opacity = (0.4);
+                        } else {
+                            document.getElementById('message1').style.color = 'green';
+                            document.getElementById('message1').innerHTML 
+                              = '🗹 Largo de Contraseña aceptable!';
+                        }
+                    }
+                    
+                    function validate_password() {
+  
+                        var pass = document.getElementById('password').value;
+                        var confirm_pass = document.getElementById('passwordConf').value;
+                        
+                        if (pass != confirm_pass) {
+                            document.getElementById('message').style.color = 'red';
+                            document.getElementById('message').innerHTML = '☒ Confirme la Contraseña';
+                            document.getElementById('message2').style.color = 'red';
+                            document.getElementById('message2').innerHTML 
+                              = '☒ Confirme la Contraseña';
+                            document.getElementById('submit').disabled = true;
+                            document.getElementById('submit').style.opacity = (0.4);
+                        } else {
+                            document.getElementById('message').style.color = 'green';
+                            document.getElementById('message').innerHTML = '🗹 Las Contraseñas coinciden!!';
+                            document.getElementById('message2').style.color = 'green';
+                            document.getElementById('message2').innerHTML = '🗹 Las Contraseñas coinciden!!';
+                            document.getElementById('submit').disabled = false;
+                            document.getElementById('submit').style.opacity = (1);
+                        }
+                    }
+
+                    function wrong_pass_alert() {
+                        if (document.getElementById('password').value != "" && document.getElementById('passwordConf').value != "") {
+                            alert("La contraseña se generó exitosamente!!!");
+                        } else {
+                            alert("Por favor, complete todos los campos!!!");
+                        }
+                    }
+        </script> 
+    
     <%
         String fecha = FormatoFecha.formaFecha();
         
@@ -36,6 +86,7 @@
                 String nombre = request.getParameter("nombre");
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
+                String passwordConf = request.getParameter("passwordConf");
                 String tiponivel = request.getParameter("tipo_nivel");
                 String estatus = request.getParameter("estatus");
                 String registradopor = request.getParameter("registrado_por");
@@ -44,7 +95,7 @@
                 try {
                     Connection con = connection.conectar();
                     Statement st = con.createStatement();
-                    String sql = "insert into usuarios (nombre_usuario,email,username,password,tipo_nivel,estatus,registrado_por,fecha) values ('"+nombre+"','"+email+"','"+username+"','"+password+"','"+tiponivel+"','"+estatus+"','"+registradopor+"','"+fechaRegistro+"');";
+                    String sql = "insert into usuarios (nombre_usuario,email,username,password, passwordConf,tipo_nivel,estatus,registrado_por,fecha) values ('"+nombre+"','"+email+"','"+username+"','"+password+"','"+passwordConf+"','"+tiponivel+"','"+estatus+"','"+registradopor+"','"+fechaRegistro+"');";
                     int count = st.executeUpdate(sql);
 
                     if(count >= 0){
@@ -78,7 +129,7 @@
                 out.print("Error al guardar usuario en BD " + e);
                 }
             }
-                    %>
+    %>
     <body>
         <div class="container my-5 mx-auto" id="containerGeneral" <%=hidden%>>
             <header>
@@ -86,7 +137,7 @@
                 <h5>Conexión a Base Datos Remota</h5>
                 <p>Fecha: <%= fecha %></p>
             </header>
-        
+
             <div class="container">
                 <div class="row">
                     <div class="col-8 mx-auto">
@@ -104,11 +155,18 @@
                                 <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de Usuario" required="required">
                             </div>
                             <div class="form-group" id="form1">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="required">
+                                <label for="password" id="labelPassword">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="required" onkeyup="validate_passwordLenght()">
+                                <span id="message" style="color:red"> </span> <br>
+                                <span id="message1" style="color:red"> </span>
                             </div>
                             <div class="form-group" id="form1">
-                                <label class="input-group-text" for="tipo_nivel">Tipo de Nivel</label>
+                                <label for="passwordConf" id="labelPasswordConfirm">Confirmar Password</label>
+                                <input type="password" class="form-control" id="passwordConf" name="passwordConf" placeholder="Confirmar Password" required="required" onkeyup="validate_password()">
+                                <span id="message2" style="color:red"> </span>
+                            </div>
+                            <div class="form-group" id="form1">
+                                <label for="tipo_nivel">Tipo de Nivel</label>
                                 <select class="form-select" id="tipo_nivel" name="tipo_nivel" required>
                                     <option selected disabled value="">Seleccione opción...</option>
                                     <option>Administrador</option>
@@ -118,9 +176,9 @@
                                 </select>    
                             </div>
                             <div class="form-group" id="form1">
-                                <label class="input-group-text" for="estatus">Estatus</label>
+                                <label for="estatus">Estatus</label>
                             </div>
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input" id="estatusA" name="estatus" value="Activo" checked>
                                     <label class="custom-control-label" for="estatusA">Activo</label>
@@ -130,11 +188,11 @@
                                     <label class="custom-control-label" for="estatusI">Inactivo</label>
                                 </div>
                             </div>
-                            
-                                <div class="form-group" id="form1">
-                                    <label for="fecha">Fecha</label>
-                                    <input type="date" class="form-control" id="fecha" name="fecha" required="required" value="today">
-                                </div>
+
+                            <div class="form-group" id="form1">
+                                <label for="fecha">Fecha</label>
+                                <input type="date" class="form-control" id="fecha" name="fecha" required="required" value="today">
+                            </div>
                             <fieldset disabled>
                                 <div class="form-group" id="form1">
                                     <label for="registrado_por2">Registrado por</label>
@@ -142,8 +200,9 @@
                                 </div>
                             </fieldset>
                             <div class="d-block mx-auto my-3 text-center">
-                                <button type="submit" id="form1" name="enviar" class="btn btn-primary me-5">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                <a href="index.jsp" class="btn btn-secondary ms-5" id="form1">Volver <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+                                <button type="submit" id="submit" name="enviar" class="btn btn-primary mx-auto me-sm-4" style="width: 8rem" onclick="wrong_pass_alert()">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                <button type = "reset" value = "Reset" class="btn btn-info mx-auto" style="width: 8rem">Reset <i class="fa fa-refresh" aria-hidden="true"></i></button>
+                                <a href="index.jsp" class="btn btn-secondary mx-auto ms-sm-4" id="form1" style="width: 8rem">Volver <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
                             </div>
                             <div>
                                 <input type="hidden" class="form-control" id="registrado_por" name="registrado_por" value="<%= session.getAttribute("username")%>">
@@ -152,9 +211,9 @@
                     </div>
                 </div>
             </div>
-                            <p class="footer">Developed by Germán Montalbetti ©2021</p>
+            <p class="footer">Developed by Germán Montalbetti ©2021</p>
         </div>
-                          
+
         <script type="text/javascript">
                     function setInputDate(_id){
                         var _dat = document.querySelector(_id);
@@ -175,7 +234,7 @@
                         console.log(data);
                         _dat.value = data;
                     };
-                         setInputDate("#fecha");
+                         setInputDate("#fecha");  
         </script> 
     </body>
 </html>

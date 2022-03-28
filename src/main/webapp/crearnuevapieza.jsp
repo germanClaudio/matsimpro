@@ -41,7 +41,7 @@
             </header>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-12">
                         <form  method="post" action="UploadNuevaPieza" enctype="multipart/form-data">
                             <div class="form-group" id="form1">
                                 <label>Nombre Pieza</label>
@@ -82,9 +82,10 @@
                                 </div>
                             </fieldset>
 
-                            <div>    
-                                <button type="submit" id="form1" name="enviar" value="enviar" class="btn btn-primary">Registrar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                <a title="Volver" href="piezas.jsp" class="btn btn-secondary" id="form1">Volver <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+                            <div class="d-block mx-auto my-1 text-center">    
+                                <button type="submit" id="form1" name="enviar" value="enviar" class="btn btn-primary mx-auto me-sm-4" style="width: 8rem">Registrar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                <button type = "reset" value = "Reset" class="btn btn-info mx-auto" style="width: 8rem">Reset <i class="fa fa-refresh" aria-hidden="true"></i></button>
+                                <a title="Volver" href="piezas.jsp" class="btn btn-secondary mx-auto ms-sm-4" style="width: 8rem" id="form1">Volver <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
                             </div>
                         </form>
                     </div>    

@@ -46,7 +46,7 @@ public class PiezasRegistradas extends HttpServlet {
             try {
                 Connection con = connection.conectar();
                 st = con.createStatement();
-                String sql = "SELECT * FROM `piezas` ORDER BY `id_pieza`;";
+                String sql = "SELECT * FROM `piezas` ORDER BY `id_pieza` DESC;";
                 rs = st.executeQuery(sql);
                 
                 while (rs.next()) {

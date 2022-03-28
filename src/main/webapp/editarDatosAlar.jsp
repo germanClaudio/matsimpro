@@ -49,15 +49,15 @@
                 st = con.createStatement();
                 rs = st.executeQuery(sql);                                                                 
                     if(rs.next()){
-                            id_alargamiento = rs.getInt(1);
-                            id_ensayo_fin = rs.getInt(2);
-                            a_porcentual = rs.getInt(5);
-                            ag_porcentual = rs.getDouble(6);
-                            ag_90_porcentual = rs.getDouble(7);
-                            a_50 = rs.getDouble(8);
-                            a_80 = rs.getDouble(9);
-                            a_80_90 = rs.getDouble(10);
-                            a_80_minimo = rs.getDouble(11);
+                        id_alargamiento = rs.getInt(1);
+                        id_ensayo_fin = rs.getInt(2);
+                        a_porcentual = rs.getInt(5);
+                        ag_porcentual = rs.getDouble(6);
+                        ag_90_porcentual = rs.getDouble(7);
+                        a_50 = rs.getDouble(8);
+                        a_80 = rs.getDouble(9);
+                        a_80_90 = rs.getDouble(10);
+                        a_80_minimo = rs.getDouble(11);
                     }
                     rs.close();
                     st.close();
@@ -67,16 +67,16 @@
             }
     
         if (request.getParameter("enviar") != null ) { //Datos alargamiento----------------
-                    String id_ensayo_end = request.getParameter("id_ensayo");
-                    String a_porcentual_fin = request.getParameter("a_porcentual");
-                    String ag_porcentual_fin = request.getParameter("ag_porcentual");
-                    String ag_90_porcentual_fin = request.getParameter("ag_90_porcentual");
-                    String a_50_fin = request.getParameter("a_50");
-                    String a_80_fin = request.getParameter("a_80");
-                    String a_80_90_fin = request.getParameter("a_80_90");
-                    String a_80_minimo_fin = request.getParameter("a_80_minimo");
-                    String fecha_alargamiento = request.getParameter("fecha_ensayo");
-                    String ultima_modif_alargamiento = request.getParameter("registrado_por");
+            String id_ensayo_end = request.getParameter("id_ensayo");
+            String a_porcentual_fin = request.getParameter("a_porcentual");
+            String ag_porcentual_fin = request.getParameter("ag_porcentual");
+            String ag_90_porcentual_fin = request.getParameter("ag_90_porcentual");
+            String a_50_fin = request.getParameter("a_50");
+            String a_80_fin = request.getParameter("a_80");
+            String a_80_90_fin = request.getParameter("a_80_90");
+            String a_80_minimo_fin = request.getParameter("a_80_minimo");
+            String fecha_alargamiento = request.getParameter("fecha_ensayo");
+            String ultima_modif_alargamiento = request.getParameter("registrado_por");
                     
                 if(request.getParameter("ensayo_categoria").equalsIgnoreCase("Material Ensayado")){
                     //-----------------------------------------------------
@@ -248,25 +248,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group" id="form1">
+                                <span for="fecha" class="form-label">Fecha</span>
+                                <input type="date" class="form-control" id="fecha_ensayo" name="fecha_ensayo" required="required">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="registrado_por" name="registrado_por" value="<%= session.getAttribute("username")%>" required="required">
+                            </div>
+
+                            <fieldset disabled>
                                 <div class="form-group" id="form1">
-                                    <span for="fecha" class="form-label">Fecha</span>
-                                    <input type="date" class="form-control" id="fecha_ensayo" name="fecha_ensayo" required="required">
+                                    <label for="registrado_por2">Modificado por</label>
+                                    <input type="text" class="form-control" id="registrado_por2" name="registrado_por2" value="<%= session.getAttribute("username")%>">
                                 </div>
-
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" id="registrado_por" name="registrado_por" value="<%= session.getAttribute("username")%>" required="required">
-                                </div>
-
-                                <fieldset disabled>
-                                    <div class="form-group" id="form1">
-                                        <label for="registrado_por2">Modificado por</label>
-                                        <input type="text" class="form-control" id="registrado_por2" name="registrado_por2" value="<%= session.getAttribute("username")%>">
-                                    </div>
-                                </fieldset>
-                                <div>       
-                                    <button type="submit" id="form1" name="enviar" class="btn btn-primary">Actualizar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                    <a title="Volver" href="ensayos.jsp" class="btn btn-danger" id="form1">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
-                                </div>    
+                            </fieldset>
+                            <div>       
+                                <button type="submit" id="form1" name="enviar" class="btn btn-primary">Actualizar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                <a title="Volver" href="ensayos.jsp" class="btn btn-danger" id="form1">Cancelar <i class="fa fa-ban" aria-hidden="true"></i></a>
+                            </div>    
                         </form>
 
                     </div>
@@ -324,5 +324,5 @@
             </script>               
             <p class="footer">Developed by Germán Montalbetti ©2021</p>
         </div>
-</body>
+    </body>
 </html>

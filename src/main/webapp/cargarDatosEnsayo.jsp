@@ -79,7 +79,7 @@
         }
      %>    
     <body>
-        <div class="container mt-5" id="containerGeneral" <%=hidden%>>
+        <div class="container my-5" id="containerGeneral" <%=hidden%>>
             <header>
                 <h1>Ingreso de Datos al Nuevo Ensayo: <%=ensayo_categoria%> <i class="bi bi-clipboard-data"></i></h1>
                 <h5>Conexion a Base Datos Remota</h5>
@@ -88,8 +88,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-sm">
-
+                    <div class="col-12">
                         <form  method="post" action="UploadDatosEnsayo" enctype="multipart/form-data">
                             <div class="form-group" id="form1">
                                 <span class="input-group-text">Nombre pieza</span>
@@ -101,55 +100,60 @@
                                 <input type="text" class="form-control" id="ensayo_categoria1" name="ensayo_categoria1" value="<%=request.getParameter("ensayo_categoria")%>" aria-label="Disabled input" disabled>
                                 <input type="hidden" class="form-control" id="ensayo_categoria" name="ensayo_categoria" value="<%=request.getParameter("ensayo_categoria")%>">
                             </div>
+                            
+                            <div class="form-group" id="form1">
+                                <span class="input-group-text">Estatus</span>
+                                <input type="text" class="form-control" id="estatus" name="estatus" value="<%=estatus%>" readonly="readonly">
+                            </div>
 
                             <!-- Alargamiento -->
                             <div class="form-group" id="alargamiento">
                                 <b>Datos de Alargamiento</b>
-                                <div class="containerDatos1">
+                                <div class="container containerDatos1 mx-auto">
                                     <div class="row gy-2 gx-3 align-items-center" id="form1">
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="a_porcentual">
                                                 <span class="input-group-text">Alarg.</span>
                                                 <input type="number" class="form-control" name="a_porcentual" placeholder="20%" min="0" max="99" step="1" value="20">
                                                 <span class="input-group-text">%</span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="ag_porcentual">
                                                 <span class="input-group-text">Ag.</span>
                                                 <input type="number" class="form-control" name="ag_porcentual" placeholder="20%" min="0" max="99" step="0.1" value="0">
                                                 <span class="input-group-text">%</span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="ag_90_porcentual">
                                                 <span class="input-group-text">Ag. 90°</span>
                                                 <input type="number" class="form-control" name="ag_90_porcentual" placeholder="20%" min="0" max="99" step="0.1" value="0">
                                                 <span class="input-group-text">%</span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="a_50">
                                                 <div class="input-group-text">A-50</div>
                                                 <input type="number" class="form-control" name="a_50" min="0" max="99" step="0.1" value="0">
                                                 <span class="input-group-text">%</span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="a_80">
                                                 <div class="input-group-text">A-80</div>
                                                 <input type="number" class="form-control" name="a_80" min="0" max="99" step="0.1" value="0">
                                                 <span class="input-group-text">%</span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="a_80_90">
                                                 <div class="input-group-text">A-80(90°)</div>
                                                 <input type="number" class="form-control" name="a_80_90" min="0" max="55" step="0.1" value="0">
                                                 <span class="input-group-text">%</span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="a_80_minimo">
                                                 <div class="input-group-text">A-80(mín)</div>
                                                 <input type="number" class="form-control" name="a_80_minimo" min="0" max="55" step="0.1" value="0">
@@ -164,46 +168,46 @@
                             <div class="form-group" id="resistencia">
                                 <b>Datos Resistencia</b>
 
-                                <div class="containerDatos2">    
+                                <div class=" container containerDatos2 mx-auto">    
                                     <div class="row gy-2 gx-3 align-items-center" id="form1">
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="rm_max">
                                                 <span class="input-group-text">Rm(max.)</span>
                                                 <input type="number" class="form-control" id="rm_max_v" name="rm_max" value="0" min="0" max="1500" step="1" onclick="promedioRm()" onchange="promedioRm()">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="rm_min">
                                                 <span class="input-group-text">Rm(min.)</span>
                                                 <input type="number" class="form-control" id="rm_min_v" name="rm_min" value="0" min="0" max="1500" step="1" onclick="promedioRm()" onchange="promedioRm()">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="rm_medio">
                                                 <span class="input-group-text">Rm medio</span>
                                                 <input type="number" class="form-control" id="rm_medio_v" name="rm_medio" value="0" readonly="readonly">
                                                 <label id="rm_medio"></label>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="rm_90">
                                                 <span class="input-group-text">Rm 90°</span>
                                                 <input type="number" class="form-control" id="rm_90" name="rm_90" value="0" min="0" max="1500" step="1">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="rm_unico">
                                                 <span class="input-group-text">Rm único</span>
                                                 <input type="number" class="form-control" name="rm_unico" value="0" min="0" max="1500" step="1">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="sigma_02">
                                                 <span class="input-group-text">Sigma 0.2</span>
                                                 <input type="number" class="form-control" name="sigma_02" value="0" min="0" max="1500" step="1">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="lim_elastico">
                                                 <span class="input-group-text">Lim Elástico</span>
                                                 <input type="number" class="form-control" name="lim_elastico" value="0" min="0" max="1500" step="1">
@@ -212,27 +216,27 @@
                                     </div>
                                 </div>
 
-                                <div class="containerDatos2">    
+                                <div class="container containerDatos2 mx-auto">    
                                     <div class="row gy-2 gx-3 align-items-center" id="form1">
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="rp_max">
                                                 <div class="input-group-text">Rp max</div>
                                                 <input type="number" class="form-control" id="rp_max_v" name="rp_max" value="0" min="0" max="1500" step="1" onclick="promedioRp()" onchange="promedioRp()">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="rp_min">
                                                 <div class="input-group-text">Rp min</div>
                                                 <input type="number" class="form-control" id="rp_min_v" name="rp_min" value="0" min="0" max="1500" step="1" onclick="promedioRp()" onchange="promedioRp()">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="rp_promedio">
                                                 <div class="input-group-text">Rp prom</div>
                                                 <input type="number" class="form-control" id="rp_promedio_v" name="rp_promedio" value="0" readonly="readonly">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="rp_unico">
                                                 <div class="input-group-text">Rp unico</div>
                                                 <input type="number" class="form-control" name="rp_unico" value="0" min="0" max="1500" step="1">
@@ -241,21 +245,21 @@
                                     </div>
                                 </div>
 
-                                <div class="containerDatos2">    
+                                <div class="container containerDatos2 mx-auto">    
                                     <div class="row gy-2 gx-3 align-items-center" id="form1">
-                                        <div class="col-sm-3">
+                                        <div class="col-4">
                                             <div class="input-group" id="lim_fluencia_max">
                                                 <div class="input-group-text">Lim. Fluencia Max</div>
                                                 <input type="number" class="form-control" name="lim_fluencia_max" value="0" min="0" max="1500" step="1">
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-4">
                                             <div class="input-group" id="lim_fluencia_min">
                                                 <div class="input-group-text">Lim. Fluencia Min</div>
                                                 <input type="number" class="form-control" name="lim_fluencia_min" value="0" min="0" max="1500" step="1">
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-4">
                                             <div class="input-group" id="lim_fluencia_unico">
                                                 <div class="input-group-text">Lim. Fluencia Unico</div>
                                                 <input type="number" class="form-control" name="lim_fluencia_unico" value="0" min="0" max="1500" step="1">
@@ -270,21 +274,21 @@
                             <div class="form-group" id="datos">
                                 <b>Datos n y r</b>
 
-                                <div class="containerDatos3">    
+                                <div class="container containerDatos3 mx-auto">    
                                     <div class="row gy-2 gx-3 align-items-center" id="form1">
-                                        <div class="col-sm-2">
+                                        <div class="col-4">
                                             <div class="input-group" id="n_0">
                                                 <div class="input-group-text">n 0°</div>
                                                 <input type="number" class="form-control" id="n_0_v" name="n_0" value="0" min="0" max="2" step="0.001">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-4">
                                             <div class="input-group" id="n_45">
                                                 <div class="input-group-text">n 45°</div>
                                                 <input type="number" class="form-control" id="n_45_v" name="n_45" value="0" min="0" max="2" step="0.001">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-4">
                                             <div class="input-group" id="n_90">
                                                 <div class="input-group-text">n 90°</div>
                                                 <input type="number" class="form-control" id="n_90_v" name="n_90" value="0" min="0" max="2" step="0.001">
@@ -293,33 +297,33 @@
                                     </div>
                                 </div>      
 
-                                <div class="containerDatos3">    
+                                <div class="container containerDatos3 mx-auto">    
                                     <div class="row gy-2 gx-3 align-items-center" id="form1">
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="r_0">
                                                 <div class="input-group-text">r 0°</div>
                                                 <input type="number" class="form-control" id="r_0_v" name="r_0" value="0" min="0" max="3" step="0.01" onclick="promedio_r();" onchange="promedio_r();">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="r_45">
                                                 <div class="input-group-text">r 45°</div>
                                                 <input type="number" class="form-control" id="r_45_v" name="r_45" value="0" min="0" max="3" step="0.01" onclick="promedio_r();" onchange="promedio_r();">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-2">
                                             <div class="input-group" id="r_90">
                                                 <div class="input-group-text">r 90°</div>
                                                 <input type="number" class="form-control" id="r_90_v" name="r_90" value="0" min="0" max="3" step="0.01" onclick="promedio_r();" onchange="promedio_r();">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="r_m">
                                                 <div class="input-group-text">r m</div>
                                                 <input type="number" class="form-control" id="r_m_v" name="r_m" value="0" readonly="readonly">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-3">
                                             <div class="input-group" id="delta_r">
                                                 <div class="input-group-text">Delta r</div>
                                                 <input type="number" class="form-control" id="delta_rv" name="delta_r" value="0" readonly="readonly">
@@ -333,52 +337,55 @@
                             <div class="form-group" id="sim">
                                 <b>Datos Archivos SIM</b>
 
-
-                                <div class="containerDatos4">    
+                                <div class="container containerDatos4 mx-auto">    
                                     <div class="row gy-2 gx-3 align-items-center" id="form1">
-                                        <div class="mb-3">
-                                            <div class="form-group" id="form1">
+                                        <div class="col-12 mx-auto">
+                                            <div class="form-group my-3" id="form1">
                                                 <label for="formFile" class="form-label">Seleccionar Archivo .sim</label>
                                                 <input class="form-control" type="file" id="archivoSim" accept=".afd" onchange="processSelectedFiles(this);">
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <div class="input-group" id="url_archivoSim">
+                                        <div class="col-12 mx-auto">
+                                            <div class="input-group my-3" id="url_archivoSim">
                                                 <div class="input-group-text">URL Archivo .afd</div>
                                                 <input type="text" class="form-control" id="urlArchivoSim" name="urlArchivoSim" placeholder="Copie y pegue la URL correspondiente al archivo .afd">
                                             </div>
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">Nombre Archivo .sim</span>
-                                            <input type="text" class="form-control" id="nombreArchivoSimT" readonly="readonly">
-                                            <input type="hidden" class="form-control" id="nombreArchivoSim" name="nombreArchivoSim">
+                                        <div class="col-12 mx-auto">
+                                            <div class="input-group my-3">
+                                                <span class="input-group-text" id="basic-addon1">Nombre Archivo .sim</span>
+                                                <input type="text" class="form-control" id="nombreArchivoSimT" readonly="readonly">
+                                                <input type="hidden" class="form-control" id="nombreArchivoSim" name="nombreArchivoSim">
+                                            </div>
                                         </div>    
                                     </div>
                                 </div>
 
-                                <div class="containerDatos4">
+                                <div class="container containerDatos4 mx-auto">
                                     <div class="row gy-2 gx-3 align-items-center" id="form1">
-                                        <div class="mb-3">
+                                        <div class="col-12 mx-auto">
                                             <div class="form-group" id="form1">
                                                 <label for="formFile" class="form-label">Seleccionar Archivo .mat</label>
                                                 <input class="form-control" type="file" id="archivoMat" name="archivoMat" accept=".mat" onchange="processSelectedmatFiles(this);">
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <div class="input-group" id="url_archivoMat">
+                                        <div class="col-12 mx-auto">
+                                            <div class="input-group my-3" id="url_archivoMat">
                                                 <div class="input-group-text">URL Archivo .mat</div>
                                                 <input type="text" class="form-control" id="urlArchivoMat" name="urlArchivoMat" placeholder="Copie y pegue la URL correspondiente al archivo .mat">
                                             </div>
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">Nombre Archivo .mat</span>
-                                            <input type="text" class="form-control" id="nombreArchivoMatT" readonly="readonly">
-                                            <input type="hidden" class="form-control" id="nombreArchivoMat" name="nombreArchivoMat">
+                                        <div class="col-12 mx-auto">
+                                            <div class="input-group my-3">
+                                                <span class="input-group-text" id="basic-addon1">Nombre Archivo .mat</span>
+                                                <input type="text" class="form-control" id="nombreArchivoMatT" readonly="readonly">
+                                                <input type="hidden" class="form-control" id="nombreArchivoMat" name="nombreArchivoMat">
+                                            </div>
                                         </div>    
                                     </div>
                                 </div>
 
-                                <div class="containerDatos4">
+                                <div class="container containerDatos4 mx-auto">
                                     <div class="form-group" id="form1">
                                         <span class="input-group-text">Descripción de Ensayo Simulación</span>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion_sim" aria-label="Descripcion"></textarea>
@@ -386,19 +393,19 @@
                                     <div class="containerDatos4 form-group">
                                         <div class="form-group" id="form1" onchange="processSelectedRadio();">
                                             <span class="input-group-text">Semáforo de Ensayo Simulación</span>
-                                            <div class="form-check">
+                                            <div class="form-check ms-3">
                                                 <input class="form-check-input" type="radio" name="radio" value="Mejoro" id="flexRadioDefault1" checked>
                                                 <label class="form-check-label" for="flexRadioDefault1">Mejoró</label>
                                             </div>
-                                            <div class="form-check">
+                                            <div class="form-check ms-3">
                                                 <input class="form-check-input" type="radio" name="radio" value="Empeoro" id="flexRadioDefault2">
                                                 <label class="form-check-label" for="flexRadioDefault2">Empeoró</label>
                                             </div>
-                                            <div class="form-check">
+                                            <div class="form-check ms-3">
                                                 <input class="form-check-input" type="radio" name="radio" value="Mejoro algunas zonas, Empeoro otras" id="flexRadioDefault3">
                                                 <label class="form-check-label" for="flexRadioDefault3">Mejoró algunas zonas, Empeoró otras</label>
                                             </div>
-                                            <div class="form-check">
+                                            <div class="form-check ms-3">
                                                 <input class="form-check-input" type="radio" name="radio" value="Sin cambios" id="flexRadioDefault4">
                                                 <label class="form-check-label" for="flexRadioDefault4">Sin cambios</label>
                                             </div>
@@ -406,14 +413,7 @@
                                         </div>
                                     </div>
                                 </div>  
-
-                                </div>
-
-
-                                <div class="form-group" id="form1">
-                                    <span class="input-group-text">Estatus</span>
-                                    <input type="text" class="form-control" id="estatus" name="estatus" value="<%=estatus%>" readonly="readonly">
-                                </div>
+                            </div>
 
                                 <div class="form-group" id="form1">
                                     <span for="fecha" class="form-label">Fecha</span>
@@ -428,14 +428,14 @@
 
                                 <fieldset disabled>
                                     <div class="form-group" id="form1">
-                                        <label for="registrado_por2">Ultima modificacion por</label>
+                                        <label for="registrado_por2">Ultima modificación por</label>
                                         <input type="text" class="form-control" id="registrado_por2" name="ultima_modificacion2" value="<%= session.getAttribute("username")%>">
                                     </div>
                                 </fieldset>
 
-                                <div>    
-                                    <button type="submit" id="form1" name="enviar" value="enviar" class="btn btn-primary">Registrar Datos de Ensayo <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                    <a href="ensayos.jsp" class="btn btn-secondary" id="form1">Volver <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
+                                <div class="d-block mx-auto my-3 text-center">    
+                                    <button type="submit" id="form1" name="enviar" value="enviar" class="btn btn-primary me-5" style="width: 16rem">Registrar Datos <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                    <a href="ensayos.jsp" class="btn btn-secondary ms-5" id="form1" style="width: 16rem">Volver <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
                                 </div>
 
                         </form>

@@ -59,7 +59,7 @@
                 <input type="hidden" name="id_ensayo" value="<%=id_ensayo%>">        
 
                 <div class="row" id="containerTable">
-                    <div class="col-sm-12">
+                    <div class="col-12">
                         <div class="table-responsive">
                             <table class="table table-striped dataTable no-footer dtr-inline" role="grid">
                                 <thead "thead-dark">

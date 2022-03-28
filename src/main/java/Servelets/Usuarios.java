@@ -17,7 +17,7 @@ public class Usuarios extends HttpServlet {
 
     Statement st = null;
     ResultSet rs = null;
-
+    
     String senalTipo = "";
     String senalStatus = "";
 
@@ -38,7 +38,7 @@ public class Usuarios extends HttpServlet {
             try {
                 Connection con = connection.conectar();
                 st = con.createStatement();
-                rs = st.executeQuery("SELECT * FROM `usuarios`;");
+                rs = st.executeQuery("SELECT * FROM `usuarios` ORDER BY `usuarios`.`id_usuario` ASC ;");
 
                 while (rs.next()) {
                     out.print("<tr>"
@@ -46,26 +46,26 @@ public class Usuarios extends HttpServlet {
                             + "<td>" + rs.getString("nombre_usuario") + "</td>"
                             + "<td>" + rs.getString("email") + "</td>"
                             + "<td>" + rs.getString("username") + "</td>");
-                    if (rs.getString(6).equals("Administrador")){
+                    if (rs.getString(7).equals("Administrador")){
                         senalTipo = "primary";
-                    } else if (rs.getString(6).equals("Procesista")) {
+                    } else if (rs.getString(7).equals("Procesista")) {
                         senalTipo = "secondary";
-                    } else if (rs.getString(6).equals("Proveedor")) {
+                    } else if (rs.getString(7).equals("Proveedor")) {
                         senalTipo = "warning";
-                    } else if (rs.getString(6).equals("Usuario")) {
+                    } else if (rs.getString(7).equals("Usuario")) {
                         senalTipo = "dark";
                     }      
                     out.print("<td> <span class=\"badge rounded-pill bg-" + senalTipo + "\">" + rs.getString("tipo_nivel") + "</span></td>");
-                    if (rs.getString(7).equals("Activo")) {
+                    if (rs.getString(8).equals("Activo")) {
                         senalStatus = "success";
-                    } else if (rs.getString(7).equals("Inactivo")) {
+                    } else if (rs.getString(8).equals("Inactivo")) {
                         senalStatus = "danger";
                     }
                     out.print("<td scope=\"row\" class=\"text-center\"> <span class=\"badge bg-" + senalStatus + "\">" + rs.getString("estatus") + "</span></td>"
                             + "<td>" + rs.getString("registrado_por") + "</td>"
                             + "<td class=\"text-right py-0 align-middle\">"
                             + "<div class=\"btn-group btn-group-sm\">"
-                            + "<a class=\"btn btn-info\" title=\"Editar Datos Usuario\" href=\"editar.jsp?id=" + rs.getInt(1) + "&nombre=" + rs.getString(2) + "&email=" + rs.getString(3) + "&username=" + rs.getString(4) + "&estatus=" + rs.getString(7) + "\" class=\"btn btn-primary btn-sm\"> <i class=\"fa fa-pencil\" aria-hidden=\"true\" ></i> </a>"
+                            + "<a class=\"btn btn-info\" title=\"Editar Datos Usuario\" href=\"editar.jsp?id=" + rs.getInt(1) + "&nombre=" + rs.getString(2) + "&email=" + rs.getString(3) + "&username=" + rs.getString(4) + "&estatus=" + rs.getString(8) + "\" class=\"btn btn-primary btn-sm\"> <i class=\"fa fa-pencil\" aria-hidden=\"true\" ></i> </a>"
                             + "<a class=\"btn btn-danger\" title=\"Borrar\" href=\"borrar.jsp?id=" + rs.getInt(1) + "&nombre=" + rs.getString(2) + "&email=" + rs.getString(3) + "&username=" + rs.getString(4) + "\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i> </a>"
                             + "</td>"
                             + "</tr>");

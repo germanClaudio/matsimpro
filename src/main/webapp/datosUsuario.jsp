@@ -40,7 +40,7 @@
                     if(password1.equals(password2) && (password1!=null || password2!=null)){
                         try {
                             Connection con = connection.conectar();
-                            String sql = "update usuarios set username='" + usuario + "',password='" + password1 + "' where id_usuario='" + sesion.getAttribute("id") + "';";
+                            String sql = "update usuarios set username='" + usuario + "',password='" + password1 + "',passwordConf='" + password2 + "' where id_usuario='" + sesion.getAttribute("id") + "';";
                             Statement st = con.createStatement();
                             int count = st.executeUpdate(sql);
                             sesion.setAttribute("usuario", usuario);
