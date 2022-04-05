@@ -40,7 +40,7 @@ public class NewPassword extends HttpServlet {
                             Connection con = connection.conectar();
                             //Statement st = con.createStatement();
                             String sql = "UPDATE `usuarios` set `password`=" + newPassword + ",`passwordConf`=" + confPassword + " where email='" + (String) session.getAttribute("email") + "';";
-                                                        
+
                             PreparedStatement pst = con.prepareStatement(sql);
                             
 				int rowCount = pst.executeUpdate();
