@@ -92,10 +92,12 @@
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" value="<%= nombre%>" name="nombre" placeholder="Nombre" required="required">
                         </div>
-                        <div class="form-group" id="form1">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" value="<%= email%>" name="email" placeholder="Em@il" required="required">
-                        </div>
+                        <fieldset disabled>
+                            <div class="form-group" id="form1">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" value="<%= email%>" name="email" placeholder="Em@il" required="required">
+                            </div>
+                        </fieldset>
                         <div class="form-group" id="form1">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username"  value="<%= username%>"  name="username" placeholder="Username" required="required">

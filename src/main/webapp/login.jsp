@@ -58,7 +58,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <a href="forgotPassword.jsp">Forgot password?</a>
+                                <a href="forgotPassword.jsp">Olvidó su Password?</a>
                             </div>
                             
                             <button type="submit" class="btn btn-primary" id="botonLogin" name="login" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</button>

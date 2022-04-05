@@ -109,10 +109,6 @@
         <url-pattern>/UploadArchivo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>NewServletrrrrr</servlet-name>
-        <url-pattern>/NewServletrrrrr</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>UploadNuevaPieza</servlet-name>
         <url-pattern>/UploadNuevaPieza</url-pattern>
     </servlet-mapping>
@@ -144,6 +140,26 @@
         <servlet-name>olvidoPassword</servlet-name>
         <url-pattern>/olvidoPassword</url-pattern>
     </servlet-mapping>
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+     <context-param>
+        <param-name>email</param-name>
+        <param-value>germontalbetti@gmail.com</param-value>
+    </context-param>
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>German</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>bmavoamwpkzcuxjr</param-value>
+    </context-param>
     <session-config>
         <session-timeout>
             30

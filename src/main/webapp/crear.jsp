@@ -23,13 +23,12 @@
     </head>
     <script type="text/javascript">
                     function validate_passwordLenght() {
-  
                         var password = document.getElementById('password').value;
                         
-                        if (password.length < 8) {
+                        if (password.length < 6) {
                             document.getElementById('message1').style.color = 'red';
                             document.getElementById('message1').innerHTML 
-                              = '☒ La Contraseña debe tener al menos 8 caracteres';
+                              = '☒ La Contraseña debe tener al menos 6 caracteres';
                             document.getElementById('submit').disabled = true;
                             document.getElementById('submit').style.opacity = (0.4);
                         } else {
@@ -149,6 +148,7 @@
                             <div class="form-group" id="form1">
                                 <label for="email">Em@il</label>
                                 <input type="text" class="form-control" id="email" name="email" placeholder="Em@il" required="required">
+                                <span id="veryImportant" style="color:red">Atención! Este email es el que se utilizará para recuperar su Password luego. </span>
                             </div>
                             <div class="form-group" id="form1">
                                 <label for="username">User Name</label>
@@ -200,7 +200,7 @@
                                 </div>
                             </fieldset>
                             <div class="d-block mx-auto my-3 text-center">
-                                <button type="submit" id="submit" name="enviar" class="btn btn-primary mx-auto me-sm-4" style="width: 8rem" onclick="wrong_pass_alert()">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                <button type="submit" id="submit" name="enviar" class="btn btn-primary mx-auto me-sm-4" style="width: 8rem" onclick="wrong_pass_alert()" disabled>Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                                 <button type = "reset" value = "Reset" class="btn btn-info mx-auto" style="width: 8rem">Reset <i class="fa fa-refresh" aria-hidden="true"></i></button>
                                 <a href="index.jsp" class="btn btn-secondary mx-auto ms-sm-4" id="form1" style="width: 8rem">Volver <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
                             </div>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
             </div>
-            <p class="footer">Developed by Germán Montalbetti ©2021</p>
+            <p class="footer">Developed by Germán Montalbetti ©2022</p>
         </div>
 
         <script type="text/javascript">

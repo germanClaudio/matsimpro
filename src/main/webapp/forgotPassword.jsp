@@ -21,28 +21,30 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10">
                     <div class="forgot">
-                        <h2>Forgot your password?</h2>
-                        <p>Change your password in three easy steps. This will help you to secure your password!</p>
+                        <h2>Olvidaste tu password?</h2>
+                        <p>Recupera tu password en tres simples pasos. Esto te ayudará a asegurar tu password!</p>
                         <ol class="list-unstyled">
-                            <li><span class="text-primary text-medium">1.</span> Enter your email address below.</li>
-                            <li><span class="text-primary text-medium">2.</span> Our system will send you an OTP to your email</li>
-                            <li><span class="text-primary text-medium">3.</span> Enter the OTP on the next page</li>
+                            <li><span class="text-primary text-medium">1.</span> Ingresa tu dirección de email debajo.</li>
+                            <li><span class="text-primary text-medium">2.</span> Nuestro sistema te enviará un OTP a su email.</li>
+                            <li><span class="text-primary text-medium">3.</span> Ingrese el OTP en la siguiente hoja.</li>
                         </ol>
                     </div>
-                    <form method="POST" action="forgotPassword.jsp" class="card mt-5">
+                    <form method="POST" action="ForgotPassword" class="card mt-5">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="email-for-pass">Enter your email address</label>
+                                <label for="email-for-pass">Ingrese dirección de email</label>
                                 <input class="form-control" type="text" name="email" id="email-for-pass" required="">
-                                <small class="form-text text-muted">Enter the registered email address . Then we'll email a OTP to this address.</small>
+                                <small class="form-text text-muted">Ingrese su dirección de email. Luego le enviaremos el OTP a esa dirección.</small>
                             </div>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer text-center">
                             <button type="submit" class="btn btn-success me-4" id="botonGenerar" name="GenerarPassword" data-bs-toggle="modal">Generar Nuevo Password <i class="fa-solid fa-key"></i></button>
                             <a href="login.jsp" class="btn btn-danger" title="Volver"> Volver a Login <i class="fa fa-arrow-circle-left"></i></a>
                         </div>
                     </form>
+                    <p class="footer text-center">Developed by Germán Montalbetti ©2022</p>
                 </div>
+                
             </div>
         </div>
         <script 

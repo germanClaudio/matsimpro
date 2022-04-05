@@ -19,6 +19,7 @@
 
         <style>
             .form-gap {
+                margin: 70px auto auto auto; 
                 padding-top: 70px;
             }
         </style>
@@ -33,7 +34,7 @@
                         <div class="panel-body">
                             <div class="text-center">
                                 <h3><i class="fa fa-lock fa-4x"></i></h3>
-                                <h2 class="text-center">Enter OTP</h2>
+                                <h2 class="text-center mb-3">Enter OTP</h2>
                                 <%
                                     if(request.getAttribute("message")!=null)
                                     {
@@ -41,8 +42,7 @@
                                     }
                                 %>
                                 <div class="panel-body">
-                                    <form id="register-form" action="ValidateOtp" role="form" autocomplete="off" class="form" method="post">
-
+                                    <form method="POST" action="ValidateOtp" id="register-form" role="form" autocomplete="off" class="form">
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
@@ -50,7 +50,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                                            <button name="recover-submit" class="btn btn-lg btn-primary btn-block" type="submit" data-bs-toggle="modal">Reset Password <i class="fa fa-unlock"></i> </button>
+                                            <a href="login.jsp" class="btn btn-danger my-5" title="Volver"> Volver a Login <i class="fa fa-arrow-circle-left"></i></a>
                                         </div>
                                         <input type="hidden" class="hide" name="token" id="token" value="">
                                     </form>

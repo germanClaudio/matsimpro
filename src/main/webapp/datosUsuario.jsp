@@ -75,6 +75,53 @@
                     }
                 }
     %>
+    <script type="text/javascript">
+                    function validate_passwordLenght() {
+                        var password = document.getElementById('password1').value;
+                        
+                        if (password.length < 6) {
+                            document.getElementById('message4').style.color = 'red';
+                            document.getElementById('message4').innerHTML 
+                              = '☒ La Contraseña debe tener al menos 6 caracteres';
+                            document.getElementById('submit').disabled = true;
+                            document.getElementById('submit').style.opacity = (0.4);
+                        } else {
+                            document.getElementById('message4').style.color = 'green';
+                            document.getElementById('message4').innerHTML 
+                              = '🗹 Largo de Contraseña aceptable!';
+                        }
+                    }
+                    
+                    function validate_password() {
+                        var pass = document.getElementById('password1').value;
+                        var confirm_pass = document.getElementById('passwordConf1').value;
+                        
+                        if (pass != confirm_pass) {
+                            document.getElementById('message3').style.color = 'red';
+                            document.getElementById('message3').innerHTML = '☒ Confirme la Contraseña';
+                            document.getElementById('message5').style.color = 'red';
+                            document.getElementById('message5').innerHTML 
+                              = '☒ Confirme la Contraseña';
+                            document.getElementById('submit').disabled = true;
+                            document.getElementById('submit').style.opacity = (0.4);
+                        } else {
+                            document.getElementById('message3').style.color = 'green';
+                            document.getElementById('message3').innerHTML = '🗹 Las Contraseñas coinciden!!';
+                            document.getElementById('message5').style.color = 'green';
+                            document.getElementById('message5').innerHTML = '🗹 Las Contraseñas coinciden!!';
+                            document.getElementById('submit').disabled = false;
+                            document.getElementById('submit').style.opacity = (1);
+                        }
+                    }
+
+                    function wrong_pass_alert() {
+                        if (document.getElementById('password1').value != "" && document.getElementById('passwordConf1').value != "") {
+                            alert("La contraseña se generó exitosamente!!!");
+                        } else {
+                            alert("Por favor, complete todos los campos!!!");
+                        }
+                    }
+    </script> 
     <body>
         <div class="container mt-5" id="containerGeneral" <%=hidden%>>
             <header>
@@ -85,27 +132,30 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-12 mx-auto">
                         <form action="datosUsuario.jsp" method="post">
                             <div class="form-group" id="form1">
                                 <label >Usuario</label>
                                 <input type="text" class="form-control" name="usuariod" value="<%= username %>" disabled>
-                                <%--<input type="text" class="form-control" name="usuariod" value="<%= sesion.getAttribute("username")%>" disabled>--%>
                                 <input type="hidden" class="form-control" name="usuario" value="<%= username %>">
                             </div>
                             <div class="form-group" id="form1">
                                 <label >Password</label>
-                                <input type="password" class="form-control" name="password1" placeholder="Password" required>
+                                <input type="password" class="form-control" name="password1" id="password1" placeholder="Password" onkeyup="validate_passwordLenght()" required>
+                                <span id="message3" style="color:red"> </span> <br>
+                                <span id="message4" style="color:red"> </span> 
                             </div>
                             <div class="form-group" id="form1">
                                 <label >Repita su Password</label>
-                                <input type="password" class="form-control" name="password2" placeholder="Repita su password" required>
+                                <input type="password" class="form-control" name="password2" id="passwordConf1" placeholder="Repita su password" onkeyup="validate_password()" required>
+                                <span id="message5" style="color:red"> </span>
                             </div>
-                            <button type="submit" name="guardar" class="btn btn-info" id="form1">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i> </button>
+                            <button type="submit" id="submit" name="guardar" class="btn btn-info" id="form1" disabled>Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i> </button>
                             <a href="main.jsp" class="btn btn-danger" id="form1"> Cancelar <i class="fa fa-ban"></i></a>
                         </form>
                     </div>
                 </div>
+                            <p class="footer">Developed by Germán Montalbetti ©2022</p>
             </div>
         </div>            
     </body>
