@@ -10,5 +10,8 @@ package Servelets;
  * @author Germán Montalbetti © <gmontalbetti@prodismo.com>
  */
 class SMTPAuthenticator {
-    
+
+    SMTPAuthenticator() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
