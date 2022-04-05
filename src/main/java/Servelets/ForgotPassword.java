@@ -37,14 +37,14 @@ public class ForgotPassword extends HttpServlet {
         HttpSession sesion = request.getSession();
 
         //System.out.println(System.getProperty("java.home"));
-        if (email != null || email.equals("")) {
+        if ( email != null ) { //email.equals("") ||
             //sending otp
             Random rand = new Random();
             otpvalue = rand.nextInt(1255650);
             String host = "smtp.gmail.com", //mail.gmail.com
                     //change accordingly
                     port = "465",
-                    uname = "MatSimPro",
+                    //uname = "MatSimPro",
                     passW = "tiketeros2022$",
                     passwordApp = "bujbdxhlrxqrncfw",
                     from = "germontalbetti@gmail.com";
